@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'note/css/style.css' %}">
+
+
+<a href="/">На главную</a>
+<a href="/add">Добавить заметку</a>
+
+{% for note in notes %}
+<a href="detail/{{ note.id }}"><h1>{{ note.title }}</h1></a>
+<p>{{ note.body| truncatewords:4  }}</p>
+<small>{{ note.created }}</small>
+<br>
+{% endfor %}
